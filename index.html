@@ -5,49 +5,55 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Faker Game</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			text-align: center;
-			margin-top: 50px;
-		}
-
-		.hidden {
-			display: none;
-		}
-
-		button {
-			margin-top: 20px;
-		}
-	</style>
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-	<h1>Faker Game</h1>
+<body class="bg-gray-900 text-white flex flex-col justify-center items-center min-h-screen">
+	<h1 class="text-4xl font-bold mb-8 text-center">Faker Game</h1>
 
-	<div id="main-screen">
-		<label for="word">Enter the word: </label>
-		<input type="text" id="word" required /><br /><br />
+	<!-- Main Screen -->
+	<div id="main-screen" class="text-center space-y-6">
+		<div>
+			<label for="word" class="block text-lg font-medium mb-2">Enter the word or leave empty for random:</label>
+			<input type="text" id="word"
+				class="px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+		</div>
 
-		<label for="players">Number of players: </label>
-		<select id="players">
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select><br /><br />
+		<div>
+			<label for="players" class="block text-lg font-medium mb-2">Number of players:</label>
+			<select id="players"
+				class="px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</div>
 
-		<button onclick="startGame()">Start Game</button>
+		<button onclick="startGame()"
+			class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+			Start Game
+		</button>
 	</div>
 
-	<div id="pass-screen" class="hidden">
-		<h2>Pass to Player <span id="current-player"></span></h2>
-		<button onclick="showWord()">Show Word</button>
+	<!-- Pass Screen -->
+	<div id="pass-screen" class="hidden flex flex-col items-center justify-center text-center space-y-6">
+		<h2 class="text-2xl font-semibold">
+			Pass to Player <span id="current-player" class="text-indigo-400"></span>
+		</h2>
+		<button onclick="showWord()"
+			class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+			Show Word
+		</button>
 	</div>
 
-	<div id="word-screen" class="hidden">
-		<h2 id="word-display"></h2>
-		<button onclick="hideWord()">Hide Word</button>
+	<!-- Word Screen -->
+	<div id="word-screen" class="hidden flex flex-col items-center justify-center text-center space-y-6">
+		<h2 id="word-display" class="text-3xl font-bold"></h2>
+		<button onclick="hideWord()"
+			class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+			Hide Word
+		</button>
 	</div>
 
 	<script>
@@ -55,6 +61,7 @@
 		let totalPlayers = 0;
 		let currentPlayer = 1;
 		let faker = 0;
+		let randomWords = ["hi", "bye"];
 
 		function startGame() {
 			currentWord = document.getElementById("word").value;
@@ -62,8 +69,8 @@
 			currentPlayer = 1;
 
 			if (currentWord.trim() === "") {
-				alert("Please enter a word.");
-				return;
+				currentWord =
+					randomWords[Math.floor(Math.random() * randomWords.length)]; // Randomly select a faker
 			}
 
 			faker = Math.floor(Math.random() * totalPlayers) + 1; // Randomly select a faker
@@ -84,8 +91,12 @@
 
 			if (currentPlayer === faker) {
 				document.getElementById("word-display").textContent = "Faker";
+				document.getElementById("word-display").classList.add("text-red-400");
 			} else {
 				document.getElementById("word-display").textContent = currentWord;
+				document
+					.getElementById("word-display")
+					.classList.remove("text-red-400");
 			}
 		}
 
