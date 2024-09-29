@@ -4,7 +4,30 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Fake Artist Companion</title>
+	<title>Fake Artist Companion | The Unofficial Companion App for Fake Artist Goes to New York</title>
+	<meta name="description"
+		content="Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!" />
+	<meta name="keywords"
+		content="Fake Artist, companion app, moderator, party game, drawing game, online game, team building, family game night" />
+	<meta name="author" content="nraw" />
+	<link rel="canonical" href="https://fake-artist.nraw.eu" />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://fake-artist.nraw.eu" />
+	<meta property="og:title" content="Fake Artist Companion | The Unofficial Companion Web App for Fake Artist Goes to New York" />
+	<meta property="og:description"
+		content="Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!" />
+	<meta property="og:image" content="https://www.yourwebsite.com/images/fake-artist-companion-preview.jpg" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://www.yourwebsite.com/fake-artist-companion" />
+	<meta property="twitter:title" content="Fake Artist Companion | The Unofficial Companion App for Fake Artist Goes to New York" />
+	<meta property="twitter:description"
+		content="Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!" />
+	<meta property="twitter:image" content="https://www.yourwebsite.com/images/fake-artist-companion-preview.jpg" />
+
 	<script src="https://cdn.tailwindcss.com"></script>
 	<style>
 		.screen {
@@ -42,7 +65,7 @@
 			animation: fadeIn 0.5s ease-out;
 		}
 
-		h1 {
+		header {
 				position: absolute;
 				top: 0;
 				width: 100%;
@@ -54,14 +77,49 @@
 		body {
 				padding-top: 70px; /* Adjust this value as needed */
 		}
+
+		footer {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+				text-sm text-gray-500;
+		}
 	</style>
+	<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fake Artist Companion",
+        "description": "Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!",
+        "url": "https://fake-artist.nraw.eu",
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0"
+        }
+      }
+    </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S378K8786C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S378K8786C');
+</script>
 
 <body class="bg-gray-900 text-white flex flex-col justify-center items-center min-h-screen">
-	<h1 class="text-4xl font-bold mb-8 text-center fade-in">
-		Fake Artist Companion
-	</h1>
+	<header>
+		<h1 class="text-4xl font-bold mb-8 text-center fade-in">
+			Fake Artist Companion
+		</h1>
+	</header>
 
+	<main>
 	<!-- Main Screen: Create New Game Button -->
 	<div id="initial-screen" class="screen visible text-center">
 		<button onclick="showSettings()"
@@ -111,6 +169,11 @@
 		</button>
 	</div>
 
+	</main>
+
+	<footer class="mt-8 text-center text-sm text-gray-500">
+		<p>&copy; 2024 nraw. All rights reserved.</p>
+	</footer>
 	<script>
 		let currentWord = "";
 		let totalPlayers = 0;
