@@ -11,10 +11,18 @@
 <body class="bg-gray-900 text-white flex flex-col justify-center items-center min-h-screen">
 	<h1 class="text-4xl font-bold mb-8 text-center">Faker Game</h1>
 
-	<!-- Main Screen -->
-	<div id="main-screen" class="text-center space-y-6">
+	<!-- Main Screen: Create New Game Button -->
+	<div id="initial-screen" class="text-center">
+		<button onclick="showSettings()"
+			class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+			Create New Game
+		</button>
+	</div>
+
+	<!-- Main Screen: Settings (Initially Hidden) -->
+	<div id="settings-screen" class="hidden text-center space-y-6">
 		<div>
-			<label for="word" class="block text-lg font-medium mb-2">Enter the word or leave empty for random:</label>
+			<label for="word" class="block text-lg font-medium mb-2">Enter the word:</label>
 			<input type="text" id="word"
 				class="px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
 		</div>
@@ -61,7 +69,13 @@
 		let totalPlayers = 0;
 		let currentPlayer = 1;
 		let faker = 0;
-		let randomWords = ["hi", "bye"];
+		let randomWords = [ "airplane window", "airplane", "alarm clock", "anchor", "apple", "aquarium", "backpack", "ball", "balloon", "banana", "barbecue grill", "baseball cap", "baseball glove", "basketball hoop", "basketball", "beach ball", "bed", "beehive", "bench", "bicycle helmet", "bicycle pedal", "bicycle wheel", "bicycle", "bird", "birdhouse", "boat", "book", "bookcase", "boomerang", "bowling alley", "bowling ball", "bowling pin", "bridge over water", "bridge", "broom", "bucket", "bus", "cactus", "calculator", "calendar", "camera", "candy cane", "candy wrapper", "canoe", "car", "castle", "cat", "cereal bowl", "chair", "cheese grater", "chessboard", "christmas tree", "clock", "cloud", "coat", "cookie", "cowboy boots", "cowboy hat", "crayon", "crocodile", "crown", "cup of tea", "cup", "cupcake", "dinosaur bone", "dinosaur", "dog", "door", "doorbell", "drum", "duckling", "eagle", "elephant", "eraser", "fan", "fence", "fire hydrant", "fire", "fireplace", "firetruck", "fish", "fishbowl", "flash drive", "flashlight", "flower", "flute", "football helmet", "football", "fork", "frisbee disc", "frisbee", "frying pan", "gingerbread man", "globe", "grapefruit", "grapes", "guitar pick", "guitar", "hammer", "handbag", "hat", "headband", "headphones", "helicopter", "hockey stick", "horse", "hot air balloon", "hotdog bun", "house", "ice cream cone", "ice cream truck", "ice cube", "ice hockey rink", "ice skates", "iceberg", "jelly jar", "jellybean", "jellyfish", "jump rope", "key", "kite in the wind", "kite", "ladder", "lamp", "lantern", "leaf", "lemon", "lifeguard tower", "light bulb", "lollipop", "luggage tag", "magnet", "mailbox", "marshmallow stick", "marshmallow", "megaphone", "mermaid tail", "microphone", "mittens", "moon", "mountain peak", "mountain", "mushroom", "octopus", "paint palette", "paintbrush", "pancake", "paper airplane", "paperclip", "parachute", "park bench", "parrot", "pencil case", "pencil sharpener", "pencil", "phone", "picnic basket", "piggy bank", "pillow", "pineapple", "pirate flag", "pirate hat", "pirate hook", "pirate ship", "pizza slice", "pizza", "plane", "police car", "popcorn bucket", "popcorn machine", "popcorn", "postcard", "puzzle board", "puzzle piece", "radio", "rainbow", "robot", "rocket launch", "rocket ship", "rocket", "roller coaster cart", "roller coaster", "roller skate", "rubber duck", "sailboat", "sailor hat", "sandcastle", "sandwich wrapper", "sandwich", "scarecrow", "scarf", "scissors", "scooter", "seashell", "shark", "shoe", "shopping cart", "skateboard ramp", "skateboard", "skis", "snake", "snowflake", "snowman", "soap bar", "soccer ball", "sofa", "spider web", "spider", "spiderweb", "spoon", "stapler", "star", "starfish", "steering wheel", "stopwatch", "submarine", "suitcase", "sun", "sunflower", "sunglass case", "sunglasses", "surfboard", "swing set", "swing", "swinging monkey", "t-shirt", "table lamp", "table", "taco", "tambourine", "teapot", "teddy bear", "tennis ball", "tennis court", "tennis net", "tennis racket", "tent", "toad", "toolbox", "tooth", "toothbrush", "toothpaste", "tractor", "traffic cone", "train station", "train track", "train", "trash can", "treasure chest", "treasure map", "tree stump", "tree", "treehouse", "truck", "trumpet", "turtle", "umbrella", "vacuum cleaner", "violin bow", "violin", "wagon", "wallet", "washing machine", "watch", "water bottle", "water fountain", "waterfall", "watering can", "watermelon", "wheelbarrow", "wheelchair", "whistle", "wind chime", "wind turbine", "windmill", "window", "windshield", "wrench", "zipper"];
+
+		// Function to show settings after clicking "Create New Game"
+		function showSettings() {
+			document.getElementById("initial-screen").classList.add("hidden");
+			document.getElementById("settings-screen").classList.remove("hidden");
+		}
 
 		function startGame() {
 			currentWord = document.getElementById("word").value;
@@ -75,8 +89,8 @@
 
 			faker = Math.floor(Math.random() * totalPlayers) + 1; // Randomly select a faker
 
-			// Hide the main screen and start the game
-			document.getElementById("main-screen").classList.add("hidden");
+			// Hide the settings screen and start the game
+			document.getElementById("settings-screen").classList.add("hidden");
 			document.getElementById("pass-screen").classList.remove("hidden");
 			updatePlayerDisplay();
 		}
@@ -109,7 +123,7 @@
 				document.getElementById("pass-screen").classList.remove("hidden");
 			} else {
 				// After the last player, return to the main screen
-				document.getElementById("main-screen").classList.remove("hidden");
+				document.getElementById("initial-screen").classList.remove("hidden");
 			}
 		}
 	</script>
