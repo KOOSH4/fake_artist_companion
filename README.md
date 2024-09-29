@@ -1,6 +1,10 @@
 # Fake Artist Companion
 
-This is an unofficial companion web app for the game "Fake Artist Goes to New York". It allows players to play the game without needing a moderator and without the need to write things down on boards. Simply select the number of players and pass the phone around!
+This is an unofficial companion web app for the game [Fake Artist Goes to New York](https://oinkgames.com/en/games/analog/a-fake-artist-goes-to-new-york).
+
+It allows players to play the game without needing a moderator and without the need to write things down on boards. Simply select the number of players and pass the phone around!
+
+Access the page [here](https://fake-artist.nraw.eu/).
 
 ## Features
 
@@ -8,6 +12,7 @@ This is an unofficial companion web app for the game "Fake Artist Goes to New Yo
 - Supports a dynamic number of players
 - Randomly assigns one player as the "faker"
 - Pass and play style gameplay
+- Meant to be used together with the [Fake Artist Goes to New York](https://oinkgames.com/en/games/analog/a-fake-artist-goes-to-new-york) game from Oink Games
 
 ## Usage
 
