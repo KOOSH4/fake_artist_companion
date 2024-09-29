@@ -6,13 +6,64 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Fake Artist Companion</title>
 	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		.screen {
+			transition:
+				opacity 0.5s ease-in-out,
+				transform 0.5s ease-in-out;
+			opacity: 0;
+			transform: scale(0.9);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(0.9);
+			pointer-events: none;
+		}
+
+		.screen.visible {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+			pointer-events: auto;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.fade-in {
+			animation: fadeIn 0.5s ease-out;
+		}
+
+		h1 {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				text-align: center;
+				padding: 20px 0;
+				box-sizing: border-box;
+		}
+
+		body {
+				padding-top: 70px; /* Adjust this value as needed */
+		}
+	</style>
 </head>
 
 <body class="bg-gray-900 text-white flex flex-col justify-center items-center min-h-screen">
-	<h1 class="text-4xl font-bold mb-8 text-center">Fake Artist Companion</h1>
+	<h1 class="text-4xl font-bold mb-8 text-center fade-in">
+		Fake Artist Companion
+	</h1>
 
 	<!-- Main Screen: Create New Game Button -->
-	<div id="initial-screen" class="text-center">
+	<div id="initial-screen" class="screen visible text-center">
 		<button onclick="showSettings()"
 			class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
 			Create New Game
@@ -20,7 +71,7 @@
 	</div>
 
 	<!-- Main Screen: Settings (Initially Hidden) -->
-	<div id="settings-screen" class="hidden text-center space-y-6">
+	<div id="settings-screen" class="screen text-center space-y-6">
 		<div>
 			<label for="word" class="block text-lg font-medium mb-2">Enter the word:</label>
 			<input type="text" id="word"
@@ -41,7 +92,7 @@
 	</div>
 
 	<!-- Pass Screen -->
-	<div id="pass-screen" class="hidden flex flex-col items-center justify-center text-center space-y-6">
+	<div id="pass-screen" class="screen flex flex-col items-center justify-center text-center space-y-6">
 		<h2 class="text-2xl font-semibold">
 			Pass to Player <span id="current-player" class="text-indigo-400"></span>
 		</h2>
@@ -52,7 +103,7 @@
 	</div>
 
 	<!-- Word Screen -->
-	<div id="word-screen" class="hidden flex flex-col items-center justify-center text-center space-y-6">
+	<div id="word-screen" class="screen flex flex-col items-center justify-center text-center space-y-6">
 		<h2 id="word-display" class="text-3xl font-bold"></h2>
 		<button onclick="hideWord()"
 			class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
@@ -347,10 +398,18 @@
 			"zipper",
 		];
 
-		// Function to show settings after clicking "Create New Game"
+		function showScreen(screenId) {
+			document.querySelectorAll(".screen").forEach((screen) => {
+				screen.classList.remove("visible");
+			});
+			const screen = document.getElementById(screenId);
+			setTimeout(() => {
+				screen.classList.add("visible");
+			}, 50);
+		}
+
 		function showSettings() {
-			document.getElementById("initial-screen").classList.add("hidden");
-			document.getElementById("settings-screen").classList.remove("hidden");
+			showScreen("settings-screen");
 		}
 
 		function startGame() {
@@ -365,9 +424,7 @@
 
 			faker = Math.floor(Math.random() * totalPlayers) + 1; // Randomly select a faker
 
-			// Hide the settings screen and start the game
-			document.getElementById("settings-screen").classList.add("hidden");
-			document.getElementById("pass-screen").classList.remove("hidden");
+			showScreen("pass-screen");
 			updatePlayerDisplay();
 		}
 
@@ -376,30 +433,25 @@
 		}
 
 		function showWord() {
-			document.getElementById("pass-screen").classList.add("hidden");
-			document.getElementById("word-screen").classList.remove("hidden");
+			showScreen("word-screen");
 
+			const wordDisplay = document.getElementById("word-display");
 			if (currentPlayer === faker) {
-				document.getElementById("word-display").textContent = "Faker";
-				document.getElementById("word-display").classList.add("text-red-400");
+				wordDisplay.textContent = "Faker";
+				wordDisplay.classList.add("text-red-400");
 			} else {
-				document.getElementById("word-display").textContent = currentWord;
-				document
-					.getElementById("word-display")
-					.classList.remove("text-red-400");
+				wordDisplay.textContent = currentWord;
+				wordDisplay.classList.remove("text-red-400");
 			}
 		}
 
 		function hideWord() {
-			document.getElementById("word-screen").classList.add("hidden");
-
 			if (currentPlayer < totalPlayers) {
 				currentPlayer++;
 				updatePlayerDisplay();
-				document.getElementById("pass-screen").classList.remove("hidden");
+				showScreen("pass-screen");
 			} else {
-				// After the last player, return to the main screen
-				document.getElementById("initial-screen").classList.remove("hidden");
+				showScreen("initial-screen");
 			}
 		}
 	</script>
