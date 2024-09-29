@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Faker Game</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		button {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Faker Game</h1>
+
+	<div id="main-screen">
+		<label for="word">Enter the word: </label>
+		<input type="text" id="word" required /><br /><br />
+
+		<label for="players">Number of players: </label>
+		<select id="players">
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select><br /><br />
+
+		<button onclick="startGame()">Start Game</button>
+	</div>
+
+	<div id="pass-screen" class="hidden">
+		<h2>Pass to Player <span id="current-player"></span></h2>
+		<button onclick="showWord()">Show Word</button>
+	</div>
+
+	<div id="word-screen" class="hidden">
+		<h2 id="word-display"></h2>
+		<button onclick="hideWord()">Hide Word</button>
+	</div>
+
+	<script>
+		let currentWord = "";
+		let totalPlayers = 0;
+		let currentPlayer = 1;
+		let faker = 0;
+
+		function startGame() {
+			currentWord = document.getElementById("word").value;
+			totalPlayers = parseInt(document.getElementById("players").value);
+			currentPlayer = 1;
+
+			if (currentWord.trim() === "") {
+				alert("Please enter a word.");
+				return;
+			}
+
+			faker = Math.floor(Math.random() * totalPlayers) + 1; // Randomly select a faker
+
+			// Hide the main screen and start the game
+			document.getElementById("main-screen").classList.add("hidden");
+			document.getElementById("pass-screen").classList.remove("hidden");
+			updatePlayerDisplay();
+		}
+
+		function updatePlayerDisplay() {
+			document.getElementById("current-player").textContent = currentPlayer;
+		}
+
+		function showWord() {
+			document.getElementById("pass-screen").classList.add("hidden");
+			document.getElementById("word-screen").classList.remove("hidden");
+
+			if (currentPlayer === faker) {
+				document.getElementById("word-display").textContent = "Faker";
+			} else {
+				document.getElementById("word-display").textContent = currentWord;
+			}
+		}
+
+		function hideWord() {
+			document.getElementById("word-screen").classList.add("hidden");
+
+			if (currentPlayer < totalPlayers) {
+				currentPlayer++;
+				updatePlayerDisplay();
+				document.getElementById("pass-screen").classList.remove("hidden");
+			} else {
+				// After the last player, return to the main screen
+				document.getElementById("main-screen").classList.remove("hidden");
+			}
+		}
+	</script>
+</body>
+
+</html>
