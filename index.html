@@ -4,10 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>
-		Fake Artist Companion | The Unofficial Companion App for Fake Artist Goes
-		to New York
-	</title>
+	<title>Fake Artist Companion | The Unofficial Companion App for Fake Artist Goes to New York</title>
 	<meta name="description"
 		content="Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!" />
 	<meta name="keywords"
@@ -33,92 +30,24 @@
 		content="Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!" />
 	<meta property="twitter:image" content="https://mugshotbot.com/m/YayFwoot" />
 
+	<link rel="stylesheet" href="style.css">
 	<script src="https://cdn.tailwindcss.com"></script>
-	<style>
-		.screen {
-			transition:
-				opacity 0.5s ease-in-out,
-				transform 0.5s ease-in-out;
-			opacity: 0;
-			transform: scale(0.9);
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%) scale(0.9);
-			pointer-events: none;
-		}
-
-		.screen.visible {
-			opacity: 1;
-			transform: translate(-50%, -50%) scale(1);
-			pointer-events: auto;
-		}
-
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				transform: translateY(-20px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		.fade-in {
-			animation: fadeIn 0.5s ease-out;
-		}
-
-		header {
-			position: absolute;
-			top: 0;
-			width: 100%;
-			text-align: center;
-			padding: 20px 0;
-			box-sizing: border-box;
-		}
-
-		body {
-			padding-top: 70px;
-			/* Adjust this value as needed */
-		}
-
-		footer {
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-			text-align: center;
-			text-sm text-gray-500;
-		}
-	</style>
 	<script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Fake Artist Companion",
-        "description": "Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!",
-        "url": "https://fake-artist.nraw.eu",
-        "applicationCategory": "Game",
-        "operatingSystem": "Web Browser",
-        "offers": {
-          "@type": "Offer",
-          "price": "0"
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Fake Artist Companion",
+            "description": "Play the Fake Artist game without needing the moderator! Don't spend time writing things down on the boards. Select the number of players and pass the phone around!",
+            "url": "https://fake-artist.nraw.eu",
+            "applicationCategory": "Game",
+            "operatingSystem": "Web Browser",
+            "offers": {
+                "@type": "Offer",
+                "price": "0"
+            }
         }
-      }
     </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S378K8786C"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-	gtag("js", new Date());
-
-	gtag("config", "G-S378K8786C");
-</script>
 
 <body class="bg-gray-900 text-white flex flex-col justify-center items-center min-h-screen">
 	<header onclick="location.reload();">
@@ -160,12 +89,12 @@
 		<!-- Pass Screen -->
 		<div id="pass-screen" class="screen flex flex-col items-center justify-center text-center space-y-6">
 			<h2 class="text-2xl font-semibold">
-				Pass to Player
+				گوشیو بده به بازیکن
 				<span id="current-player" class="text-indigo-400"></span>
 			</h2>
 			<button onclick="showWord()"
 				class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
-				Show Word
+				یواشکی نگاش کن
 			</button>
 		</div>
 
@@ -174,363 +103,515 @@
 			<h2 id="word-display" class="text-3xl font-bold"></h2>
 			<button onclick="hideWord()"
 				class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
-				Hide Word
+				پنهانش کن
 			</button>
 		</div>
+
+		<!-- FAQ Section -->
+		<div id="faq-section" class="hidden fixed inset-0 bg-gray-800 bg-opacity-90 z-50 p-8 overflow-auto" dir="rtl">
+
+			<h2 class="text-2xl font-semibold">سوالات پر تکرار (FAQ)</h2>
+			<div class="faq-item">
+				<h3 class="text-xl font-semibold">۱. اگر همه بازیکنان در نقاشی‌های خود زیاد شبیه هم بکشند، چطور؟</h3>
+				<p>در صورتی که همه بازیکنان از روی کلمه مشابه نقاشی بکشند، پیدا کردن هنرپیشه جعلی سخت می‌شود. در این
+					صورت باید به دقت به نحوه نقاشی‌ها و تلاش هنرپیشه جعلی برای مخفی کردن هویت خود توجه کنید.</p>
+			</div>
+			<div class="faq-item">
+				<h3 class="text-xl font-semibold">۲. آیا می‌توانیم چند دور بازی کنیم؟</h3>
+				<p>بله، بازی می‌تواند چند دور تکرار شود. هر دور یک فرصت جدید برای شناسایی هنرپیشه جعلی است.</p>
+			</div>
+			<div class="faq-item">
+				<h3 class="text-xl font-semibold">۳. اگر من به عنوان هنرپیشه جعلی انتخاب شوم، چطور باید بازی کنم؟</h3>
+				<p>شما باید سعی کنید نقاشی‌ای بکشید که از کلمه اصلی دور نباشد و بازیکنان دیگر را متقاعد کنید که شما نیز
+					مانند آنها کلمه مشابه‌ای را دارید. اما مراقب باشید که خیلی واضح نباشید!</p>
+			</div>
+			<div class="faq-item">
+				<h3 class="text-xl font-semibold">۴. چگونه باید حدس بزنیم که هنرپیشه جعلی کیست؟</h3>
+				<p>باید به نحوه نقاشی‌های دیگران و رفتارهای مشکوک توجه کنید. اگر کسی نقاشی خیلی متفاوت یا غیرمرتبط با
+					دسته‌بندی کشید، شاید آن نفر هنرپیشه جعلی باشد.</p>
+			</div>
+			<div class="faq-item">
+				<h3 class="text-xl font-semibold">۵. آیا می‌توانیم از نقاشی‌های پیچیده استفاده کنیم؟</h3>
+				<p>نه، باید نقاشی‌های ساده و مرتبط با کلمه بکشید تا بازی جالب و چالش‌برانگیز باشد. نقاشی‌های پیچیده
+					می‌تواند دیگران را گیج کند و بازیکنان از شما شواهدی برای شناسایی شما به عنوان هنرپیشه جعلی پیدا
+					کنند.</p>
+			</div>
+			<div class="faq-item">
+				<h3 class="text-xl font-semibold">۶. آیا می‌توانم کلمه را تغییر دهم؟</h3>
+				<p>نه، کلمه به صورت تصادفی انتخاب می‌شود و باید مطابق با آن نقاشی بکشید.</p>
+			</div>
+		</div>
+
+		<!-- Rules Section -->
+		<div id="rules-section" class="hidden fixed inset-0 bg-gray-800 bg-opacity-90 z-50 p-8 overflow-auto" dir="rtl">
+			<h2 class="text-2xl font-semibold">قوانین بازی</h2>
+			<div class="rules-item">
+				<h3 class="text-xl font-semibold">هدف بازی</h3>
+				<p>هدف بازی این است که بازیکنان با استفاده از نقاشی‌های ساده، به طور ناشناس کلمه‌ی انتخاب‌شده را به
+					تصویر بکشند، در حالی که یکی از بازیکنان به عنوان "هنرپیشه جعلی" از کلمه بی‌خبر است. هنرپیشه جعلی
+					باید تلاش کند تا بدون لو رفتن، نقاشی خود را هماهنگ با دیگران جلوه دهد. بازیکنان دیگر باید با دقت و
+					توجه به جزئیات نقاشی‌ها، هنرپیشه جعلی را شناسایی کنند.</p>
+			</div>
+			<div class="rules-item">
+				<h3 class="text-xl font-semibold">قوانین بازی: هنرپیشه جعلی به نیویورک می‌رود</h3>
+				<p>۱. شروع بازی و انتخاب تعداد بازیکنان<br>
+					ابتدا تعداد بازیکنان را انتخاب کنید (حداقل ۴ نفر). سپس بازی به صورت تصادفی یک "کلمه" و یک
+					"دسته‌بندی" را مشخص می‌کند.</p>
+			</div>
+			<div class="rules-item">
+				<p>۲. انتخاب هنرپیشه جعلی<br>
+					بازی به صورت خودکار یکی از بازیکنان را به عنوان "هنرپیشه جعلی" انتخاب می‌کند.</p>
+				<ul>
+					<li>بازیکنان اصلی: کلمه‌ای مرتبط با دسته‌بندی را می‌بینند.</li>
+					<li>هنرپیشه جعلی: فقط دسته‌بندی را می‌بیند و از کلمه‌ی اصلی بی‌خبر است.</li>
+				</ul>
+			</div>
+			<div class="rules-item">
+				<p>۳. نقاشی کشیدن به نوبت<br>
+					هر بازیکن به نوبت یک نقاشی ساده و کوچک از کلمه‌ای که دیده است، می‌کشد تا به نوعی به دیگران سرنخ
+					بدهد.</p>
+				<ul>
+					<li>هنرپیشه جعلی: باید بدون اطلاع از کلمه‌ی اصلی، سعی کند نقاشی‌اش شبیه بقیه باشد تا لو نرود.</li>
+				</ul>
+			</div>
+			<div class="rules-item">
+				<p>۴. پایان دور نقاشی و حدس هنرپیشه جعلی<br>
+					پس از یک دور کامل نقاشی کشیدن، بازیکنان باید با بحث و بررسی نقاشی‌ها، حدس بزنند که هنرپیشه جعلی کدام
+					یک از بازیکنان است.</p>
+			</div>
+			<div class="rules-item">
+				<p>۵. رأی‌گیری و افشای هنرپیشه جعلی<br>
+					در پایان، بازیکنان با رأی‌گیری مشخص می‌کنند که هنرپیشه جعلی چه کسی بوده است. اگر به درستی حدس بزنند،
+					بازیکنان اصلی برنده می‌شوند. اما اگر هنرپیشه جعلی بتواند خود را مخفی نگه دارد، او برنده خواهد بود!
+				</p>
+			</div>
+			<div class="rules-item">
+				<h3 class="text-xl font-semibold">نکات مهم</h3>
+				<p>نقاشی‌ها باید ساده و سرنخ‌دهنده باشند، اما نباید مستقیماً کلمه را نشان دهند.<br>
+					اگر خیلی دقیق بکشید، ممکن است هنرپیشه جعلی از روی نقاشی‌های شما سرنخ بگیرد!</p>
+			</div>
+		</div>
+
+		<button id="faq-toggle-button" onclick="toggleFAQ()"
+			class="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+			FAQ
+		</button>
+		<button id="rules-toggle-button" onclick="toggleRules()"
+			class="fixed bottom-16 right-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+			Rules
+		</button>
 	</main>
 
 	<footer class="mt-8 px-4 text-center text-sm text-gray-500">
-		<p>&copy; 2024 nraw. All rights reserved.</p>
-		<p>
-			Unofficial companion app for the
-			<a href="https://oinkgames.com/en/games/analog/a-fake-artist-goes-to-new-york/">Fake Artist Goes to New York</a>
-			game from Oink games.
-		</p>
+		<p>&copy; 2024 KOOSH4, based on work by <a href="https://github.com/nraw">nraw</a>. Unofficial companion app for
+			the <a href="https://oinkgames.com/en/games/analog/a-fake-artist-goes-to-new-york/">A Fake Artist Goes to
+				New York</a> game from Oink Games. All rights reserved.</p>
 	</footer>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-S378K8786C"></script>
 	<script>
-		let currentWord = "";
-		let totalPlayers = 0;
-		let currentPlayer = 1;
-		let faker = 0;
-		let randomWords = [
-			"airplane window",
-			"airplane",
-			"alarm clock",
-			"anchor",
-			"apple",
-			"aquarium",
-			"backpack",
-			"ball",
-			"balloon",
-			"banana",
-			"barbecue grill",
-			"baseball cap",
-			"baseball glove",
-			"basketball hoop",
-			"basketball",
-			"beach ball",
-			"bed",
-			"beehive",
-			"bench",
-			"bicycle helmet",
-			"bicycle pedal",
-			"bicycle wheel",
-			"bicycle",
-			"bird",
-			"birdhouse",
-			"boat",
-			"book",
-			"bookcase",
-			"boomerang",
-			"bowling alley",
-			"bowling ball",
-			"bowling pin",
-			"bridge over water",
-			"bridge",
-			"broom",
-			"bucket",
-			"bus",
-			"cactus",
-			"calculator",
-			"calendar",
-			"camera",
-			"candy cane",
-			"candy wrapper",
-			"canoe",
-			"car",
-			"castle",
-			"cat",
-			"cereal bowl",
-			"chair",
-			"cheese grater",
-			"chessboard",
-			"christmas tree",
-			"clock",
-			"cloud",
-			"coat",
-			"cookie",
-			"cowboy boots",
-			"cowboy hat",
-			"crayon",
-			"crocodile",
-			"crown",
-			"cup of tea",
-			"cup",
-			"cupcake",
-			"dinosaur bone",
-			"dinosaur",
-			"dog",
-			"door",
-			"doorbell",
-			"drum",
-			"duckling",
-			"eagle",
-			"elephant",
-			"eraser",
-			"fan",
-			"fence",
-			"fire hydrant",
-			"fire",
-			"fireplace",
-			"firetruck",
-			"fish",
-			"fishbowl",
-			"flash drive",
-			"flashlight",
-			"flower",
-			"flute",
-			"football helmet",
-			"football",
-			"fork",
-			"frisbee disc",
-			"frisbee",
-			"frying pan",
-			"gingerbread man",
-			"globe",
-			"grapefruit",
-			"grapes",
-			"guitar pick",
-			"guitar",
-			"hammer",
-			"handbag",
-			"hat",
-			"headband",
-			"headphones",
-			"helicopter",
-			"hockey stick",
-			"horse",
-			"hot air balloon",
-			"hotdog bun",
-			"house",
-			"ice cream cone",
-			"ice cream truck",
-			"ice cube",
-			"ice hockey rink",
-			"ice skates",
-			"iceberg",
-			"jelly jar",
-			"jellybean",
-			"jellyfish",
-			"jump rope",
-			"key",
-			"kite in the wind",
-			"kite",
-			"ladder",
-			"lamp",
-			"lantern",
-			"leaf",
-			"lemon",
-			"lifeguard tower",
-			"light bulb",
-			"lollipop",
-			"luggage tag",
-			"magnet",
-			"mailbox",
-			"marshmallow stick",
-			"marshmallow",
-			"megaphone",
-			"mermaid tail",
-			"microphone",
-			"mittens",
-			"moon",
-			"mountain peak",
-			"mountain",
-			"mushroom",
-			"octopus",
-			"paint palette",
-			"paintbrush",
-			"pancake",
-			"paper airplane",
-			"paperclip",
-			"parachute",
-			"park bench",
-			"parrot",
-			"pencil case",
-			"pencil sharpener",
-			"pencil",
-			"phone",
-			"picnic basket",
-			"piggy bank",
-			"pillow",
-			"pineapple",
-			"pirate flag",
-			"pirate hat",
-			"pirate hook",
-			"pirate ship",
-			"pizza slice",
-			"pizza",
-			"plane",
-			"police car",
-			"popcorn bucket",
-			"popcorn machine",
-			"popcorn",
-			"postcard",
-			"puzzle board",
-			"puzzle piece",
-			"radio",
-			"rainbow",
-			"robot",
-			"rocket launch",
-			"rocket ship",
-			"rocket",
-			"roller coaster cart",
-			"roller coaster",
-			"roller skate",
-			"rubber duck",
-			"sailboat",
-			"sailor hat",
-			"sandcastle",
-			"sandwich wrapper",
-			"sandwich",
-			"scarecrow",
-			"scarf",
-			"scissors",
-			"scooter",
-			"seashell",
-			"shark",
-			"shoe",
-			"shopping cart",
-			"skateboard ramp",
-			"skateboard",
-			"skis",
-			"snake",
-			"snowflake",
-			"snowman",
-			"soap bar",
-			"soccer ball",
-			"sofa",
-			"spider web",
-			"spider",
-			"spiderweb",
-			"spoon",
-			"stapler",
-			"star",
-			"starfish",
-			"steering wheel",
-			"stopwatch",
-			"submarine",
-			"suitcase",
-			"sun",
-			"sunflower",
-			"sunglass case",
-			"sunglasses",
-			"surfboard",
-			"swing set",
-			"swing",
-			"swinging monkey",
-			"t-shirt",
-			"table lamp",
-			"table",
-			"taco",
-			"tambourine",
-			"teapot",
-			"teddy bear",
-			"tennis ball",
-			"tennis court",
-			"tennis net",
-			"tennis racket",
-			"tent",
-			"toad",
-			"toolbox",
-			"tooth",
-			"toothbrush",
-			"toothpaste",
-			"tractor",
-			"traffic cone",
-			"train station",
-			"train track",
-			"train",
-			"trash can",
-			"treasure chest",
-			"treasure map",
-			"tree stump",
-			"tree",
-			"treehouse",
-			"truck",
-			"trumpet",
-			"turtle",
-			"umbrella",
-			"vacuum cleaner",
-			"violin bow",
-			"violin",
-			"wagon",
-			"wallet",
-			"washing machine",
-			"watch",
-			"water bottle",
-			"water fountain",
-			"waterfall",
-			"watering can",
-			"watermelon",
-			"wheelbarrow",
-			"wheelchair",
-			"whistle",
-			"wind chime",
-			"wind turbine",
-			"windmill",
-			"window",
-			"windshield",
-			"wrench",
-			"zipper",
-		];
-
-		function showScreen(screenId) {
-			document.querySelectorAll(".screen").forEach((screen) => {
-				screen.classList.remove("visible");
-			});
-			const screen = document.getElementById(screenId);
-			setTimeout(() => {
-				screen.classList.add("visible");
-			}, 50);
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
 		}
+		gtag("js", new Date());
 
-		function showSettings() {
-			showScreen("settings-screen");
-		}
-
-		function startGame() {
-			currentWord = document.getElementById("word").value;
-			totalPlayers = parseInt(document.getElementById("players").value);
-			currentPlayer = 1;
-
-			if (currentWord.trim() === "") {
-				currentWord =
-					randomWords[Math.floor(Math.random() * randomWords.length)]; // Randomly select a faker
-			}
-
-			faker = Math.floor(Math.random() * totalPlayers) + 1; // Randomly select a faker
-
-			showScreen("pass-screen");
-			updatePlayerDisplay();
-		}
-
-		function updatePlayerDisplay() {
-			document.getElementById("current-player").textContent = currentPlayer;
-		}
-
-		function showWord() {
-			showScreen("word-screen");
-
-			const wordDisplay = document.getElementById("word-display");
-			if (currentPlayer === faker) {
-				wordDisplay.textContent = "Faker";
-				wordDisplay.classList.add("text-red-400");
-			} else {
-				wordDisplay.textContent = currentWord;
-				wordDisplay.classList.remove("text-red-400");
-			}
-		}
-
-		function hideWord() {
-			if (currentPlayer < totalPlayers) {
-				currentPlayer++;
-				updatePlayerDisplay();
-				showScreen("pass-screen");
-			} else {
-				showScreen("initial-screen");
-			}
-		}
+		gtag("config", "G-S378K8786C");
 	</script>
+</body>
+
+</html>
+<script>
+	let currentWord = "";
+	let fakerWord = "";
+	let totalPlayers = 0;
+	let currentPlayer = 1;
+	let faker = 0;
+	let randomWords = [
+		{ word: "پنجره هواپیما", category: "اشیای وسایل نقلیه" },
+		{ word: "هواپیما", category: "وسایل نقلیه" },
+		{ word: "ساعت زنگ دار", category: "اشیای خانگی" },
+		{ word: "لنگر", category: "لوازم دریایی" },
+		{ word: "سیب", category: "غذا" },
+		{ word: "آکواریوم", category: "لوازم خانگی" },
+		{ word: "کوله پشتی", category: "لوازم شخصی" },
+		{ word: "توپ", category: "ورزش" },
+		{ word: "بادکنک", category: "اسباب‌بازی" },
+		{ word: "موز", category: "غذا" },
+		{ word: "کباب پز", category: "لوازم خانگی" },
+		{ word: "کلاه بیسبال", category: "ورزش" },
+		{ word: "دستکش بیسبال", category: "ورزش" },
+		{ word: "حلقه بسکتبال", category: "ورزش" },
+		{ word: "بسکتبال", category: "ورزش" },
+		{ word: "توپ ساحلی", category: "ورزش" },
+		{ word: "تخت", category: "لوازم خانگی" },
+		{ word: "کندو", category: "طبیعت" },
+		{ word: "نیمکت", category: "لوازم خانگی" },
+		{ word: "کلاه ایمنی دوچرخه", category: "ورزش" },
+		{ word: "پدال دوچرخه", category: "ورزش" },
+		{ word: "چرخ دوچرخه", category: "ورزش" },
+		{ word: "دوچرخه", category: "وسایل نقلیه" },
+		{ word: "پرنده", category: "حیوانات" },
+		{ word: "لانه پرنده", category: "حیوانات" },
+		{ word: "قایق", category: "وسایل نقلیه" },
+		{ word: "کتاب", category: "آموزشی" },
+		{ word: "کتابخانه", category: "لوازم خانگی" },
+		{ word: "بومرنگ", category: "ورزش" },
+		{ word: "مسیر بولینگ", category: "ورزش" },
+		{ word: "توپ بولینگ", category: "ورزش" },
+		{ word: "پل روی آب", category: "سازه‌ها" },
+		{ word: "پل", category: "سازه‌ها" },
+		{ word: "جارو", category: "لوازم خانگی" },
+		{ word: "سطل", category: "لوازم خانگی" },
+		{ word: "اتوبوس", category: "وسایل نقلیه" },
+		{ word: "کاکتوس", category: "طبیعت" },
+		{ word: "ماشین حساب", category: "آموزشی" },
+		{ word: "تقویم", category: "لوازم خانگی" },
+		{ word: "دوربین", category: "لوازم الکترونیکی" },
+		{ word: "آب‌نبات عصایی", category: "غذا" },
+		{ word: "قایق پارویی", category: "وسایل نقلیه" },
+		{ word: "ماشین", category: "وسایل نقلیه" },
+		{ word: "قلعه", category: "سازه‌ها" },
+		{ word: "گربه", category: "حیوانات" },
+		{ word: "صندلی", category: "لوازم خانگی" },
+		{ word: "صفحه شطرنج", category: "ورزش" },
+		{ word: "درخت کریسمس", category: "تزئینی" },
+		{ word: "ساعت", category: "لوازم خانگی" },
+		{ word: "ابر", category: "طبیعت" },
+		{ word: "کت", category: "لباس" },
+		{ word: "بیسکویت", category: "غذا" },
+		{ word: "چکمه کابویی", category: "لباس" },
+		{ word: "کلاه کابویی", category: "لباس" },
+		{ word: "مداد شمعی", category: "لوازم هنری" },
+		{ word: "تمساح", category: "حیوانات" },
+		{ word: "تاج", category: "تزئینی" },
+		{ word: "فنجان چای", category: "آشپزخانه" },
+		{ word: "فنجان", category: "آشپزخانه" },
+		{ word: "کاپ کیک", category: "غذا" },
+		{ word: "استخوان دایناسور", category: "طبیعت" },
+		{ word: "دایناسور", category: "حیوانات" },
+		{ word: "سگ", category: "حیوانات" },
+		{ word: "در", category: "سازه‌ها" },
+		{ word: "زنگ در", category: "لوازم خانگی" },
+		{ word: "طبل", category: "موسیقی" },
+		{ word: "جوجه اردک", category: "حیوانات" },
+		{ word: "عقاب", category: "حیوانات" },
+		{ word: "فیل", category: "حیوانات" },
+		{ word: "پاک‌کن", category: "لوازم تحریر" },
+		{ word: "پنکه", category: "لوازم خانگی" },
+		{ word: "نرده", category: "سازه‌ها" },
+		{ word: "شیر آتش‌نشانی", category: "سازه‌ها" },
+		{ word: "آتش", category: "طبیعت" },
+		{ word: "شومینه", category: "لوازم خانگی" },
+		{ word: "ماشین آتش‌نشانی", category: "وسایل نقلیه" },
+		{ word: "ماهی", category: "حیوانات" },
+		{ word: "تنگ ماهی", category: "لوازم خانگی" },
+		{ word: "فلش درایو", category: "لوازم الکترونیکی" },
+		{ word: "چراغ‌قوه", category: "لوازم الکترونیکی" },
+		{ word: "گل", category: "طبیعت" },
+		{ word: "فلوت", category: "موسیقی" },
+		{ word: "کلاه فوتبال", category: "ورزش" },
+		{ word: "توپ فوتبال", category: "ورزش" },
+		{ word: "چنگال", category: "آشپزخانه" },
+		{ word: "دیسک فریزبی", category: "ورزش" },
+		{ word: "ماهیتابه", category: "آشپزخانه" },
+		{ word: "کُره جغرافیایی", category: "آموزشی" },
+		{ word: "انگور", category: "غذا" },
+		{ word: "گیتار", category: "موسیقی" },
+		{ word: "چکش", category: "ابزار" },
+		{ word: "کیف دستی", category: "لوازم شخصی" },
+		{ word: "کلاه", category: "لباس" },
+		{ word: "هدبند", category: "لباس" },
+		{ word: "هدفون", category: "لوازم الکترونیکی" },
+		{ word: "هلیکوپتر", category: "وسایل نقلیه" },
+		{ word: "چوب هاکی", category: "ورزش" },
+		{ word: "اسب", category: "حیوانات" },
+		{ word: "بالن هوای گرم", category: "وسایل نقلیه" },
+		{ word: "نان ساندویچ هات‌داگ", category: "غذا" },
+		{ word: "خانه", category: "سازه‌ها" },
+		{ word: "بستنی قیفی", category: "غذا" },
+		{ word: "ماشین بستنی", category: "وسایل نقلیه" },
+		{ word: "تکه یخ", category: "طبیعت" },
+		{ word: "پیست هاکی روی یخ", category: "ورزش" },
+		{ word: "اسکیت یخ", category: "ورزش" },
+		{ word: "کوه یخی", category: "طبیعت" },
+		{ word: "شیشه ژله", category: "غذا" },
+		{ word: "آب‌نبات ژله‌ای", category: "غذا" },
+		{ word: "عروس دریایی", category: "حیوانات" },
+		{ word: "طناب بازی", category: "ورزش" },
+		{ word: "کلید", category: "لوازم خانگی" },
+		{ word: "بادبادک در باد", category: "اسباب‌بازی" },
+		{ word: "بادبادک", category: "اسباب‌بازی" },
+		{ word: "نردبان", category: "لوازم خانگی" },
+		{ word: "لامپ", category: "لوازم خانگی" },
+		{ word: "چراغ فانوسی", category: "لوازم خانگی" },
+		{ word: "برگ", category: "طبیعت" },
+		{ word: "لیمو", category: "غذا" },
+		{ word: "برج نجات غریق", category: "سازه‌ها" },
+		{ word: "لامپ", category: "لوازم خانگی" },
+		{ word: "آب‌نبات چوبی", category: "غذا" },
+		{ word: "برچسب چمدان", category: "لوازم شخصی" },
+		{ word: "آهنربا", category: "لوازم تحریر" },
+		{ word: "صندوق پست", category: "سازه‌ها" },
+		{ word: "چوب مارشمالو", category: "آشپزخانه" },
+		{ word: "مارشمالو", category: "غذا" },
+		{ word: "بلندگو دستی", category: "لوازم الکترونیکی" },
+		{ word: "دم پری دریایی", category: "تخیلی" },
+		{ word: "میکروفون", category: "لوازم الکترونیکی" },
+		{ word: "دستکش زمستانی", category: "لباس" },
+		{ word: "ماه", category: "طبیعت" },
+		{ word: "قله کوه", category: "طبیعت" },
+		{ word: "کوه", category: "طبیعت" },
+		{ word: "قارچ", category: "طبیعت" },
+		{ word: "اختاپوس", category: "حیوانات" },
+		{ word: "پالت رنگ", category: "لوازم هنری" },
+		{ word: "قلم‌مو", category: "لوازم هنری" },
+		{ word: "پنکیک", category: "غذا" },
+		{ word: "هواپیمای کاغذی", category: "اسباب‌بازی" },
+		{ word: "گیره کاغذ", category: "لوازم تحریر" },
+		{ word: "چتر نجات", category: "ورزش" },
+		{ word: "نیمکت پارک", category: "لوازم خانگی" },
+		{ word: "طوطی", category: "حیوانات" },
+		{ word: "جعبه مداد", category: "لوازم تحریر" },
+		{ word: "تراش مداد", category: "لوازم تحریر" },
+		{ word: "مداد", category: "لوازم تحریر" },
+		{ word: "تلفن", category: "لوازم الکترونیکی" },
+		{ word: "سبد پیک‌نیک", category: "لوازم خانگی" },
+		{ word: "قلک خوکی", category: "لوازم خانگی" },
+		{ word: "بالش", category: "لوازم خانگی" },
+		{ word: "آناناس", category: "غذا" },
+		{ word: "پرچم دزد دریایی", category: "تخیلی" },
+		{ word: "کلاه دزد دریایی", category: "لباس" },
+		{ word: "قلاب دزد دریایی", category: "تخیلی" },
+		{ word: "کشتی دزد دریایی", category: "وسایل نقلیه" },
+		{ word: "تکه پیتزا", category: "غذا" },
+		{ word: "پیتزا", category: "غذا" },
+		{ word: "هواپیما", category: "وسایل نقلیه" },
+		{ word: "ماشین پلیس", category: "وسایل نقلیه" },
+		{ word: "سطل پاپ‌کورن", category: "آشپزخانه" },
+		{ word: "دستگاه پاپ‌کورن", category: "آشپزخانه" },
+		{ word: "پاپ‌کورن", category: "غذا" },
+		{ word: "کارت پستال", category: "لوازم تحریر" },
+		{ word: "تخته پازل", category: "اسباب‌بازی" },
+		{ word: "تکه پازل", category: "اسباب‌بازی" },
+		{ word: "رادیو", category: "لوازم الکترونیکی" },
+		{ word: "رنگین‌کمان", category: "طبیعت" },
+		{ word: "ربات", category: "لوازم الکترونیکی" },
+		{ word: "پرتاب موشک", category: "تخیلی" },
+		{ word: "سفینه فضایی", category: "تخیلی" },
+		{ word: "موشک", category: "تخیلی" },
+		{ word: "واگن ترن هوایی", category: "ورزش" },
+		{ word: "ترن هوایی", category: "ورزش" },
+		{ word: "کفش اسکیت", category: "ورزش" },
+		{ word: "قایق بادبانی", category: "وسایل نقلیه" },
+		{ word: "کلاه ملوانی", category: "لباس" },
+		{ word: "قلعه شنی", category: "اسباب‌بازی" },
+		{ word: "کاغذ ساندویچ", category: "آشپزخانه" },
+		{ word: "ساندویچ", category: "غذا" },
+		{ word: "مترسک", category: "تزئینی" },
+		{ word: "شال گردن", category: "لباس" },
+		{ word: "قیچی", category: "ابزار" },
+		{ word: "اسکوتر", category: "ورزش" },
+		{ word: "صدف", category: "طبیعت" },
+		{ word: "کوسه", category: "حیوانات" },
+		{ word: "کفش", category: "لباس" },
+		{ word: "چرخ خرید", category: "لوازم خانگی" },
+		{ word: "رمپ اسکیت‌بورد", category: "ورزش" },
+		{ word: "اسکیت‌بورد", category: "ورزش" },
+		{ word: "چوب اسکی", category: "ورزش" },
+		{ word: "مار", category: "حیوانات" },
+		{ word: "دانه برف", category: "طبیعت" },
+		{ word: "آدم‌برفی", category: "تزئینی" },
+		{ word: "صابون", category: "آشپزخانه" },
+		{ word: "توپ فوتبال", category: "ورزش" },
+		{ word: "مبل", category: "لوازم خانگی" },
+		{ word: "تار عنکبوت", category: "طبیعت" },
+		{ word: "عنکبوت", category: "حیوانات" },
+		{ word: "قاشق", category: "آشپزخانه" },
+		{ word: "منگنه", category: "لوازم تحریر" },
+		{ word: "ستاره", category: "طبیعت" },
+		{ word: "ستاره دریایی", category: "حیوانات" },
+		{ word: "فرمان", category: "لوازم نقلیه" },
+		{ word: "کورنومتر", category: "لوازم ورزشی" },
+		{ word: "زیردریایی", category: "وسایل نقلیه" },
+		{ word: "چمدان", category: "لوازم شخصی" },
+		{ word: "خورشید", category: "طبیعت" },
+		{ word: "گل آفتابگردان", category: "طبیعت" },
+		{ word: "جعبه عینک آفتابی", category: "لوازم شخصی" },
+		{ word: "عینک آفتابی", category: "لوازم شخصی" },
+		{ word: "تخته موج‌سواری", category: "ورزش" },
+		{ word: "تاب", category: "بازی" },
+		{ word: "میمون در حال تاب خوردن", category: "حیوانات" },
+		{ word: "تی‌شرت", category: "لباس" },
+		{ word: "چراغ رومیزی", category: "لوازم خانگی" },
+		{ word: "میز", category: "لوازم خانگی" },
+		{ word: "تاکو", category: "غذا" },
+		{ word: "قوری", category: "آشپزخانه" },
+		{ word: "خرس عروسکی", category: "اسباب‌بازی" },
+		{ word: "توپ تنیس", category: "ورزش" },
+		{ word: "زمین تنیس", category: "ورزش" },
+		{ word: "تور تنیس", category: "ورزش" },
+		{ word: "راکت تنیس", category: "ورزش" },
+		{ word: "چادر", category: "ورزش" },
+		{ word: "وزغ", category: "حیوانات" },
+		{ word: "جعبه ابزار", category: "ابزار" },
+		{ word: "دندان", category: "بدن" },
+		{ word: "مسواک", category: "بهداشت" },
+		{ word: "خمیردندان", category: "بهداشت" },
+		{ word: "تراکتور", category: "وسایل نقلیه" },
+		{ word: "مخروط ترافیکی", category: "ابزار" },
+		{ word: "ایستگاه قطار", category: "سازه‌ها" },
+		{ word: "ریل قطار", category: "وسایل نقلیه" },
+		{ word: "قطار", category: "وسایل نقلیه" },
+		{ word: "سطل زباله", category: "لوازم خانگی" },
+		{ word: "صندوق گنج", category: "تزئینی" },
+		{ word: "نقشه گنج", category: "تخیلی" },
+		{ word: "کنده درخت", category: "طبیعت" },
+		{ word: "درخت", category: "طبیعت" },
+		{ word: "خانه درختی", category: "سازه‌ها" },
+		{ word: "کامیون", category: "وسایل نقلیه" },
+		{ word: "لاک‌پشت", category: "حیوانات" },
+		{ word: "چتر", category: "لوازم شخصی" },
+		{ word: "جاروبرقی", category: "لوازم خانگی" },
+		{ word: "ویولن", category: "لوازم موسیقی" },
+		{ word: "واگن", category: "وسایل نقلیه" },
+		{ word: "کیف پول", category: "لوازم شخصی" },
+		{ word: "ماشین لباسشویی", category: "لوازم خانگی" },
+		{ word: "ساعت مچی", category: "لوازم شخصی" },
+		{ word: "بطری آب", category: "آشپزخانه" },
+		{ word: "فواره آب", category: "طبیعت" },
+		{ word: "آبشار", category: "طبیعت" },
+		{ word: "آبپاش", category: "باغبانی" },
+		{ word: "هندوانه", category: "غذا" },
+		{ word: "فرغون", category: "باغبانی" },
+		{ word: "صندلی چرخ‌دار", category: "لوازم خانگی" },
+		{ word: "سوت", category: "ورزش" },
+		{ word: "توربین بادی", category: "ابزار" },
+		{ word: "آسیاب بادی", category: "ابزار" },
+		{ word: "پنجره", category: "سازه‌ها" },
+		{ word: "شیشه جلو اتومبیل", category: "وسایل نقلیه" },
+		{ word: "آچار", category: "ابزار" },
+		{ word: "زیپ", category: "لوازم خانگی" },
+		{ word: "آسیاب بادی", category: "ابزار" },
+		{ word: "پنجره", category: "سازه‌ها" },
+		{ word: "شیشه جلو اتومبیل", category: "وسایل نقلیه" },
+		{ word: "آچار", category: "ابزار" },
+		{ word: "زیپ", category: "لوازم خانگی" },
+		{ word: "کتاب", category: "لوازم التحریر" },
+		{ word: "خودکار", category: "لوازم التحریر" },
+		{ word: "دفتر", category: "لوازم التحریر" },
+		{ word: "میز", category: "لوازم خانگی" },
+		{ word: "صندلی", category: "لوازم خانگی" },
+		{ word: "تلویزیون", category: "لوازم خانگی" },
+		{ word: "یخچال", category: "لوازم خانگی" },
+		{ word: "ماشین لباسشویی", category: "لوازم خانگی" },
+		{ word: "گوشی موبایل", category: "الکترونیک" },
+		{ word: "لپ‌تاپ", category: "الکترونیک" },
+		{ word: "تبلت", category: "الکترونیک" },
+		{ word: "چراغ", category: "لوازم خانگی" },
+		{ word: "ساعت", category: "لوازم خانگی" },
+		{ word: "فرش", category: "تزئینی" },
+		{ word: "پرده", category: "تزئینی" },
+		{ word: "کفش", category: "پوشاک" },
+		{ word: "لباس", category: "پوشاک" },
+		{ word: "کلاه", category: "پوشاک" },
+		{ word: "عینک", category: "پوشاک" },
+		{ word: "کیف", category: "پوشاک" },
+		{ word: "چای", category: "غذا" },
+		{ word: "قهوه", category: "غذا" },
+		{ word: "نان", category: "غذا" },
+		{ word: "برنج", category: "غذا" },
+		{ word: "ماست", category: "غذا" },
+		{ word: "پنیر", category: "غذا" },
+		{ word: "دوچرخه", category: "وسایل نقلیه" },
+		{ word: "ماشین", category: "وسایل نقلیه" },
+		{ word: "موتور سیکلت", category: "وسایل نقلیه" }
+	];
+
+	function showScreen(screenId) {
+		document.querySelectorAll(".screen").forEach((screen) => {
+			screen.classList.remove("visible");
+		});
+		const screen = document.getElementById(screenId);
+		setTimeout(() => {
+			screen.classList.add("visible");
+		}, 50);
+	}
+
+	function showSettings() {
+		showScreen("settings-screen");
+	}
+	function startGame() {
+		currentWord = document.getElementById("word").value;
+		totalPlayers = parseInt(document.getElementById("players").value);
+		currentPlayer = 1;
+
+		if (currentWord.trim() === "") {
+			let randomNumber = Math.floor(Math.random() * randomWords.length);
+
+			currentWord =
+				randomWords[randomNumber].word; // Randomly select a faker
+			fakerWord = randomWords[randomNumber].category;
+		}
+
+		faker = Math.floor(Math.random() * totalPlayers) + 1; // Randomly select a faker
+
+		showScreen("pass-screen");
+		updatePlayerDisplay();
+	}
+
+	function updatePlayerDisplay() {
+		document.getElementById("current-player").textContent = currentPlayer;
+	}
+
+	function showWord() {
+		showScreen("word-screen");
+
+		const wordDisplay = document.getElementById("word-display");
+		if (currentPlayer === faker) {
+			wordDisplay.textContent = "تو هنرمند متقلب هستی! موضوع: " + " " + fakerWord;
+			wordDisplay.classList.add("text-red-400");
+		} else {
+			wordDisplay.textContent = currentWord + ' -- ' + "موضوع: " + fakerWord;
+			wordDisplay.classList.remove("text-red-400");
+		}
+	}
+
+	function hideWord() {
+		if (currentPlayer < totalPlayers) {
+			currentPlayer++;
+			updatePlayerDisplay();
+			showScreen("pass-screen");
+		} else {
+			showScreen("initial-screen");
+		}
+	}
+	function toggleFAQ() {
+		const faqSection = document.getElementById('faq-section');
+		const faqToggleButton = document.getElementById('faq-toggle-button');
+		if (faqSection.classList.contains('hidden')) {
+			faqSection.classList.remove('hidden');
+			faqToggleButton.textContent = 'FAQ - Close';
+		} else {
+			faqSection.classList.add('hidden');
+			faqToggleButton.textContent = 'FAQ';
+		}
+	}
+
+	function toggleRules() {
+		const rulesSection = document.getElementById('rules-section');
+		const rulesToggleButton = document.getElementById('rules-toggle-button');
+		if (rulesSection.classList.contains('hidden')) {
+			rulesSection.classList.remove('hidden');
+			rulesToggleButton.textContent = 'Rules - Close';
+		} else {
+			rulesSection.classList.add('hidden');
+			rulesToggleButton.textContent = 'Rules';
+		}
+	}
+
+</script>
 </body>
 
 </html>
