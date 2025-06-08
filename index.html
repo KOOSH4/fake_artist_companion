@@ -570,7 +570,8 @@
 
 		const wordDisplay = document.getElementById("word-display");
 		if (currentPlayer === faker) {
-			wordDisplay.textContent = "تو هنرمند متقلب هستی! موضوع: " + " " + fakerWord;
+			// wordDisplay.textContent = "تو هنرمند متقلب (جاسوس) هستی👹! موضوع: " + " " + fakerWord;
+			wordDisplay.textContent = "تو هنرمند متقلب (جاسوس) هستی 👹" + " ";
 			wordDisplay.classList.add("text-red-400");
 		} else {
 			wordDisplay.textContent = currentWord + ' -- ' + "موضوع: " + fakerWord;
